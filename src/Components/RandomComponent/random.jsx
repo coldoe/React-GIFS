@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { API_KEY } from "../Env/env.js";
+
 import "../RandomComponent/random.css";
 
 export const Random = () => {
@@ -7,7 +9,7 @@ export const Random = () => {
 
   function takeGif() {
     fetch(
-      "https://api.giphy.com/v1/gifs/random?api_key=BjZK1CDgWCLJuP82nQVHFoTDpjTWn5qb&tag=&rating=g"
+      `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`
     )
       .then((data) => data.json())
       //   .then((gifs) => console.log(gifs.data.images.looping.mp4));
