@@ -7,9 +7,8 @@ export const Search = () => {
   const [searchKey, setsearchKey] = useState("");
   const [arrayGifs, setarrayGifs] = useState([]);
   useEffect(() => {
-    //every time input changes fire
     fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchKey}&limit=10`
+      `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchKey}&limit=20`
     )
       .then((data) => data.json())
       .then((gifs) => setarrayGifs(gifs.data));
@@ -19,8 +18,12 @@ export const Search = () => {
       <div className="row green accent-2">
         <form className="col s12">
           <div className="row">
-            <div className={!searchKey ? "max green accent-2" : ""}>
-              <div className="input-field col s4 offset-s4">
+            <div
+              className={
+                !searchKey || arrayGifs.length < 12 ? "max green accent-2" : ""
+              }
+            >
+              <div className="input-field col s6 offset-s3">
                 <input
                   onChange={(e) => setsearchKey(e.target.value)}
                   id="searchInput"
@@ -33,7 +36,6 @@ export const Search = () => {
           </div>
         </form>
         {arrayGifs.map((gif) => (
-          // <img src={gif.images.downsized.url} alt={searchKey}></img>
           <Gif gif={gif.images.downsized.url} key={gif.id} title={gif.title} />
         ))}
       </div>

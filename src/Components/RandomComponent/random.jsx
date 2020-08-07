@@ -28,7 +28,7 @@ export const Random = () => {
             {" "}
             Take gif
           </button>
-          <div>{gif ? <img width="500" height="500" src={gif} /> : null}</div>
+          <div>{gif ? <img width="300" height="300" src={gif} /> : null}</div>
         </div>
       </div>
     </div>
