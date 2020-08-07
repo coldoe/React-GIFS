@@ -1,0 +1,23 @@
+.main {
+  height: 100vh;
+  background-color: pink;
+}
+#left {
+  margin-top: 40vh;
+  width: 200px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+#right {
+  width: 200px;
+  margin-top: 40vh;
+  text-align: center;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 465px) {
+  #right {
+    margin-top: 3vh;
+  }
+}
